@@ -1,6 +1,6 @@
 # About
 
-Assignment of GMFINITY
+This application provides the functionality to convert long URLs into short URLs. Users can sign up, login, convert their URLs and view/update their converted URLs. It also shows the total clicks made on the short URLs.
 
 - Tech Stack: ReactJs, Vite, NodeJs, Express, MongoDB
 
