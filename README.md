@@ -32,3 +32,21 @@ cd frontend && npm install
 npm run dev
 
 ```
+
+# Screenshots
+
+### Login
+
+![login](screenshots/login.png)
+
+### Register
+
+![register](screenshots/register.png)
+
+### User Page
+
+![userpage](screenshots/userpage.png)
+
+### Update Modal
+
+![update](screenshots/update.png)
