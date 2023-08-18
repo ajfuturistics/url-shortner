@@ -28,7 +28,7 @@ const registerUser = async (req, res) => {
 
     const token = jwt.sign({ user }, process.env.JWT_SECRET);
 
-    res.status(201).json({ user, token, message: "user created successfully" });
+    res.status(201).json({ user, token });
   } catch (err) {
     console.log(err);
     return res

@@ -39,6 +39,7 @@ const shortenUrl = async (req, res) => {
       urlId,
       longurl,
       userId: user._id,
+      views: 0,
     });
 
     return res.status(201).json({
@@ -118,6 +119,12 @@ const deleteUrlData = async (req, res) => {
       return res.status(404).json({ message: "Url not found" });
     }
 
+    if (urlData.userId.toString() !== req.user._id.toString()) {
+      return res
+        .status(400)
+        .json({ message: "You are not allowed to delete this url" });
+    }
+
     await urlData.deleteOne();
 
     return res.status(200).json({
@@ -143,6 +150,11 @@ const getUrl = async (req, res) => {
         .status(400)
         .send(`<h1 style="text-align: center;">Invalid Url</h1>`);
     }
+
+    // for tracking views
+    const currentViews = urlData.views || 0;
+    urlData.views = currentViews + 1;
+    await urlData.save();
 
     return res.status(200).redirect(urlData.longurl);
   } catch (err) {

@@ -11,6 +11,7 @@ const urlSchema = new mongoose.Schema({
     type: String,
     required: [true, "Long url is required"],
   },
+  views: { type: Number },
   userId: {
     type: mongoose.Types.ObjectId,
     ref: "User",
